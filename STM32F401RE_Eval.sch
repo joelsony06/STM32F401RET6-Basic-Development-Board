@@ -1,0 +1,815 @@
+EESchema Schematic File Version 4
+LIBS:power
+LIBS:device
+LIBS:Connector
+LIBS:Connector_Generic
+LIBS:MCU_ST_STM32F4
+EELAYER 29 0
+EELAYER END
+$Descr A4 11693 8268
+Sheet 1 1
+Title "STM32F401RE Evaluation Board - Professional Clean Design"
+Date "2026-09-15"
+Rev "3.0"
+Comp "Mixed Traces PCB Design Competition"
+Comment1 "USB-C power | STM32F401RET6 | SWD | UART | I2C | SPI | GPIO"
+Comment2 "100 x 100 mm, 2-layer PCB"
+$EndDescr
+Text Notes 700 650 0    90   ~ 12
+SECTION 1: USB-C POWER & 3V3 REGULATOR
+Text Notes 4300 650 0    90   ~ 12
+SECTION 2: STM32F401RE CORE & DECOUPLING
+Text Notes 8500 650 0    90   ~ 12
+SECTION 3: SWD PROGRAMMING
+Text Notes 700 4550 0    90   ~ 12
+SECTION 4: RESET & USER I/O
+Text Notes 4200 4550 0    90   ~ 12
+SECTION 5: COMMUNICATION & GPIO EXPANSION
+$Comp
+L Connector:USB_C_Receptacle_USB2.0_16P J1
+U 1 1 101
+P 1500 1800
+F 0 "J1" H 1600 1900 50  0000 C CNN
+F 1 "USB-C POWER" H 1700 1700 50  0000 C CNN
+	1    1500 1800
+	1 0 0 -1
+$EndComp
+$Comp
+L Regulator_Linear:AP2112K-3.3 U2
+U 1 1 102
+P 3000 1750
+F 0 "U2" H 3100 1850 50  0000 C CNN
+F 1 "AP2112K-3.3" H 3200 1650 50  0000 C CNN
+	1    3000 1750
+	1 0 0 -1
+$EndComp
+$Comp
+L Device:C C1
+U 1 1 103
+P 2350 2150
+F 0 "C1" H 2450 2250 50  0000 C CNN
+F 1 "10uF" H 2550 2050 50  0000 C CNN
+	1    2350 2150
+	1 0 0 -1
+$EndComp
+$Comp
+L Device:C C2
+U 1 1 104
+P 3550 2150
+F 0 "C2" H 3650 2250 50  0000 C CNN
+F 1 "1uF" H 3750 2050 50  0000 C CNN
+	1    3550 2150
+	1 0 0 -1
+$EndComp
+$Comp
+L Device:R R1
+U 1 1 105
+P 4050 1800
+F 0 "R1" H 4150 1900 50  0000 C CNN
+F 1 "1k" H 4250 1700 50  0000 C CNN
+	1    4050 1800
+	1 0 0 -1
+$EndComp
+$Comp
+L Device:LED D1
+U 1 1 106
+P 4050 2250
+F 0 "D1" H 4150 2350 50  0000 C CNN
+F 1 "POWER ON" H 4250 2150 50  0000 C CNN
+	1    4050 2250
+	1 0 0 -1
+$EndComp
+$Comp
+L Device:R R5
+U 1 1 107
+P 2050 2600
+F 0 "R5" H 2150 2700 50  0000 C CNN
+F 1 "5.1k" H 2250 2500 50  0000 C CNN
+	1    2050 2600
+	1 0 0 -1
+$EndComp
+$Comp
+L Device:R R6
+U 1 1 108
+P 2450 2600
+F 0 "R6" H 2550 2700 50  0000 C CNN
+F 1 "5.1k" H 2650 2500 50  0000 C CNN
+	1    2450 2600
+	1 0 0 -1
+$EndComp
+Wire Wire Line
+	2000 1400 2800 1400
+Wire Wire Line
+	1300 1400 2000 1400
+Text Label 2100 1400 0    50   ~ 0
+VBUS_5V
+Wire Wire Line
+	2800 1400 2800 1750
+Wire Wire Line
+	2700 1750 2800 1750
+Wire Wire Line
+	2700 1650 2550 1650
+Wire Wire Line
+	2550 1650 2550 1400
+Wire Wire Line
+	2550 1400 2800 1400
+Wire Wire Line
+	3300 1750 6500 1750
+Text Label 3500 1750 0    50   ~ 0
++3V3
+Wire Wire Line
+	2350 2000 2350 1750
+Wire Wire Line
+	2350 2300 2350 2450
+Wire Wire Line
+	3550 2000 3550 1750
+Wire Wire Line
+	3550 2300 3550 2450
+Wire Wire Line
+	4050 1650 4050 1750
+Wire Wire Line
+	4050 1950 4050 2100
+Wire Wire Line
+	4050 2400 4050 2450
+Wire Wire Line
+	2350 2450 6500 2450
+Text Label 2450 2450 0    50   ~ 0
+GND
+Wire Wire Line
+	1500 2300 1500 2450
+Wire Wire Line
+	1200 2300 1500 2300
+Wire Wire Line
+	2000 1500 2050 1500
+Wire Wire Line
+	2050 1500 2050 2450
+Wire Wire Line
+	2050 2450 2050 2450
+Wire Wire Line
+	2000 1600 2450 1600
+Wire Wire Line
+	2450 1600 2450 2450
+NoConn ~ 2000 1700
+NoConn ~ 2000 1800
+NoConn ~ 2000 1900
+NoConn ~ 2000 2000
+NoConn ~ 2000 2100
+NoConn ~ 2000 2200
+Text Label 1500 2450 0    50   ~ 0
+GND
+$Comp
+L power:PWR_FLAG #FLG01
+U 1 1 109
+P 2200 1400
+F 0 "#FLG01" H 2300 1500 50  0000 C CNN
+F 1 "PWR_FLAG" H 2400 1300 50  0000 C CNN
+	1    2200 1400
+	1 0 0 -1
+$EndComp
+Wire Wire Line
+	2200 1400 2200 1400
+$Comp
+L power:PWR_FLAG #FLG02
+U 1 1 110
+P 1800 2450
+F 0 "#FLG02" H 1900 2550 50  0000 C CNN
+F 1 "PWR_FLAG" H 2000 2350 50  0000 C CNN
+	1    1800 2450
+	1 0 0 -1
+$EndComp
+Wire Wire Line
+	1800 2450 2350 2450
+Wire Wire Line
+	2050 2750 2050 2450
+Wire Wire Line
+	2450 2750 2450 2450
+Text Notes 700 3000 0    55   ~ 12
+USB-C is configured as a 5 V sink: CC1/CC2 use 5.1 kOhm Rd resistors.
+$Comp
+L MCU_ST_STM32F4:STM32F401RET6 U1
+U 1 1 201
+P 5600 3200
+F 0 "U1" H 5700 3300 50  0000 C CNN
+F 1 "STM32F401RET6" H 5800 3100 50  0000 C CNN
+	1    5600 3200
+	1 0 0 -1
+$EndComp
+Wire Wire Line
+	4800 2000 4600 2000
+Text Label 4600 2000 0    50   ~ 0
+SWCLK
+NoConn ~ 4900 2000
+NoConn ~ 5000 2000
+NoConn ~ 5100 2000
+NoConn ~ 5200 2000
+NoConn ~ 5300 2000
+NoConn ~ 5400 2000
+NoConn ~ 5500 2000
+NoConn ~ 5600 2000
+NoConn ~ 6000 2000
+NoConn ~ 6100 2000
+Wire Wire Line
+	5700 2000 5500 2000
+Text Label 5500 2000 0    50   ~ 0
+I2C_SCL
+Wire Wire Line
+	5800 2000 5900 2000
+Text Label 5900 2000 0    50   ~ 0
+I2C_SDA
+Wire Wire Line
+	5900 2000 5900 2000
+Wire Wire Line
+	5900 2000 5900 2000
+Wire Wire Line
+	5900 2000 5900 2000
+Wire Wire Line
+	5900 2000 5900 2000
+Wire Wire Line
+	5900 2000 5900 1900
+Text Label 5900 1900 0    50   ~ 0
+BOOT0
+Wire Wire Line
+	6200 2000 6200 1900
+Text Label 6200 1900 0    50   ~ 0
+GND
+Wire Wire Line
+	6300 2000 6300 1900
+Text Label 6300 1900 0    50   ~ 0
++3V3
+Wire Wire Line
+	4500 2500 4300 2500
+Text Label 4300 2500 0    50   ~ 0
++3V3
+Wire Wire Line
+	4500 2600 4300 2600
+Text Label 4300 2600 0    50   ~ 0
+PC13
+NoConn ~ 4500 2700
+NoConn ~ 4500 2800
+NoConn ~ 4500 2900
+NoConn ~ 4500 3000
+Wire Wire Line
+	4500 3100 4300 3100
+Text Label 4300 3100 0    50   ~ 0
+NRST
+Wire Wire Line
+	4500 3200 4300 3200
+Text Label 4300 3200 0    50   ~ 0
+PA0
+Wire Wire Line
+	4500 3300 4300 3300
+Text Label 4300 3300 0    50   ~ 0
+PA1
+Wire Wire Line
+	4500 3400 4300 3400
+Text Label 4300 3400 0    50   ~ 0
+PA2
+Wire Wire Line
+	4500 3500 4300 3500
+Text Label 4300 3500 0    50   ~ 0
+PA3
+Wire Wire Line
+	4500 3600 4300 3600
+Text Label 4300 3600 0    50   ~ 0
+GND
+Wire Wire Line
+	4500 3700 4300 3700
+Text Label 4300 3700 0    50   ~ 0
++3V3
+Wire Wire Line
+	4900 4400 4900 4550
+Text Label 4900 4550 0    50   ~ 0
+PA3
+Wire Wire Line
+	5200 4400 5200 4550
+Text Label 5200 4550 0    50   ~ 0
+PA5
+Wire Wire Line
+	5300 4400 5300 4550
+Text Label 5300 4550 0    50   ~ 0
+PA6
+Wire Wire Line
+	5400 4400 5400 4550
+Text Label 5400 4550 0    50   ~ 0
+PA7
+Wire Wire Line
+	5500 4400 5500 4550
+Text Label 5500 4550 0    50   ~ 0
+PC4
+Wire Wire Line
+	5600 4400 5600 4550
+Text Label 5600 4550 0    50   ~ 0
+PC5
+Wire Wire Line
+	5700 4400 5700 4550
+Text Label 5700 4550 0    50   ~ 0
+PB0
+Wire Wire Line
+	5800 4400 5800 4550
+Text Label 5800 4550 0    50   ~ 0
+PB1
+Wire Wire Line
+	5900 4400 5900 4550
+Text Label 5900 4550 0    50   ~ 0
+PB2
+Wire Wire Line
+	6000 4400 6000 4550
+Text Label 6000 4550 0    50   ~ 0
+PB10
+Wire Wire Line
+	5100 4400 5100 4550
+Text Label 5100 4550 0    50   ~ 0
+PA4
+Wire Wire Line
+	5000 4400 5000 4550
+Text Label 5000 4550 0    50   ~ 0
+GND
+Wire Wire Line
+	5100 4400 5100 4550
+Text Label 5100 4550 0    50   ~ 0
++3V3
+Wire Wire Line
+	6200 4400 6200 4550
+Text Label 6200 4550 0    50   ~ 0
+VCAP_1
+Wire Wire Line
+	6300 4400 6300 4550
+Text Label 6300 4550 0    50   ~ 0
+GND
+Wire Wire Line
+	6400 4400 6400 4550
+Text Label 6400 4550 0    50   ~ 0
++3V3
+Wire Wire Line
+	6700 2400 7000 2400
+Text Label 6750 2400 0    50   ~ 0
+PB12
+Wire Wire Line
+	6700 2500 7000 2500
+Text Label 6750 2500 0    50   ~ 0
+PB13
+Wire Wire Line
+	6700 2600 7000 2600
+Text Label 6750 2600 0    50   ~ 0
+PB14
+Wire Wire Line
+	6700 2700 7000 2700
+Text Label 6750 2700 0    50   ~ 0
+PB15
+Wire Wire Line
+	6700 2800 7000 2800
+Text Label 6750 2800 0    50   ~ 0
+PC6
+Wire Wire Line
+	6700 2900 7000 2900
+Text Label 6750 2900 0    50   ~ 0
+PC7
+Wire Wire Line
+	6700 3000 7000 3000
+Text Label 6750 3000 0    50   ~ 0
+PC8
+Wire Wire Line
+	6700 3100 7000 3100
+Text Label 6750 3100 0    50   ~ 0
+PC9
+Wire Wire Line
+	6700 3200 7000 3200
+Text Label 6750 3200 0    50   ~ 0
+PA8
+Wire Wire Line
+	6700 3300 7000 3300
+Text Label 6750 3300 0    50   ~ 0
+UART_TX
+Wire Wire Line
+	6700 3400 7000 3400
+Text Label 6750 3400 0    50   ~ 0
+UART_RX
+Wire Wire Line
+	6700 3500 7000 3500
+Text Label 6750 3500 0    50   ~ 0
+PA11
+Wire Wire Line
+	6700 3600 7000 3600
+Text Label 6750 3600 0    50   ~ 0
+PA12
+Wire Wire Line
+	6700 3700 7000 3700
+Text Label 6750 3700 0    50   ~ 0
+SWDIO
+Wire Wire Line
+	6700 3800 7000 3800
+Text Label 6750 3800 0    50   ~ 0
+GND
+Wire Wire Line
+	6700 3900 7000 3900
+Text Label 6750 3900 0    50   ~ 0
++3V3
+$Comp
+L Device:C C3
+U 1 1 220
+P 6800 4300
+F 0 "C3" H 6900 4400 50  0000 C CNN
+F 1 "2.2uF" H 7000 4200 50  0000 C CNN
+	1    6800 4300
+	1 0 0 -1
+$EndComp
+Wire Wire Line
+	6800 4150 6800 4050
+Text Label 6800 4050 0    50   ~ 0
+VCAP_1
+Wire Wire Line
+	6800 4450 6800 4550
+Text Label 6800 4550 0    50   ~ 0
+GND
+$Comp
+L power:PWR_FLAG #FLG03
+U 1 1 221
+P 7000 4050
+F 0 "#FLG03" H 7100 4150 50  0000 C CNN
+F 1 "PWR_FLAG" H 7200 3950 50  0000 C CNN
+	1    7000 4050
+	1 0 0 -1
+$EndComp
+Wire Wire Line
+	7000 4050 6800 4050
+$Comp
+L Device:C C4
+U 1 1 204
+P 4500 1200
+F 0 "C4" H 4600 1300 50  0000 C CNN
+F 1 "100nF" H 4700 1100 50  0000 C CNN
+	1    4500 1200
+	1 0 0 -1
+$EndComp
+Wire Wire Line
+	4500 1050 4500 950
+Text Label 4500 950 0    50   ~ 0
++3V3
+Wire Wire Line
+	4500 1350 4500 1450
+Text Label 4500 1450 0    50   ~ 0
+GND
+$Comp
+L Device:C C5
+U 1 1 205
+P 4900 1200
+F 0 "C5" H 5000 1300 50  0000 C CNN
+F 1 "100nF" H 5100 1100 50  0000 C CNN
+	1    4900 1200
+	1 0 0 -1
+$EndComp
+Wire Wire Line
+	4900 1050 4900 950
+Text Label 4900 950 0    50   ~ 0
++3V3
+Wire Wire Line
+	4900 1350 4900 1450
+Text Label 4900 1450 0    50   ~ 0
+GND
+$Comp
+L Device:C C6
+U 1 1 206
+P 5300 1200
+F 0 "C6" H 5400 1300 50  0000 C CNN
+F 1 "100nF" H 5500 1100 50  0000 C CNN
+	1    5300 1200
+	1 0 0 -1
+$EndComp
+Wire Wire Line
+	5300 1050 5300 950
+Text Label 5300 950 0    50   ~ 0
++3V3
+Wire Wire Line
+	5300 1350 5300 1450
+Text Label 5300 1450 0    50   ~ 0
+GND
+$Comp
+L Device:C C7
+U 1 1 207
+P 5700 1200
+F 0 "C7" H 5800 1300 50  0000 C CNN
+F 1 "100nF" H 5900 1100 50  0000 C CNN
+	1    5700 1200
+	1 0 0 -1
+$EndComp
+Wire Wire Line
+	5700 1050 5700 950
+Text Label 5700 950 0    50   ~ 0
++3V3
+Wire Wire Line
+	5700 1350 5700 1450
+Text Label 5700 1450 0    50   ~ 0
+GND
+$Comp
+L Device:C C8
+U 1 1 208
+P 6100 1200
+F 0 "C8" H 6200 1300 50  0000 C CNN
+F 1 "100nF" H 6300 1100 50  0000 C CNN
+	1    6100 1200
+	1 0 0 -1
+$EndComp
+Wire Wire Line
+	6100 1050 6100 950
+Text Label 6100 950 0    50   ~ 0
++3V3
+Wire Wire Line
+	6100 1350 6100 1450
+Text Label 6100 1450 0    50   ~ 0
+GND
+$Comp
+L Device:C C9
+U 1 1 209
+P 6500 1200
+F 0 "C9" H 6600 1300 50  0000 C CNN
+F 1 "4.7uF" H 6700 1100 50  0000 C CNN
+	1    6500 1200
+	1 0 0 -1
+$EndComp
+Wire Wire Line
+	6500 1050 6500 950
+Text Label 6500 950 0    50   ~ 0
++3V3
+Wire Wire Line
+	6500 1350 6500 1450
+Text Label 6500 1450 0    50   ~ 0
+GND
+$Comp
+L Device:C C10
+U 1 1 230
+P 6900 1200
+F 0 "C10" H 7000 1300 50  0000 C CNN
+F 1 "4.7uF" H 7100 1100 50  0000 C CNN
+	1    6900 1200
+	1 0 0 -1
+$EndComp
+Wire Wire Line
+	6900 1050 6900 950
+Text Label 6900 950 0    50   ~ 0
++3V3
+Wire Wire Line
+	6900 1350 6900 1450
+Text Label 6900 1450 0    50   ~ 0
+GND
+$Comp
+L Connector_Generic:Conn_01x05 J2
+U 1 1 301
+P 8800 1800
+F 0 "J2" H 8900 1900 50  0000 C CNN
+F 1 "SWD HEADER" H 9000 1700 50  0000 C CNN
+	1    8800 1800
+	1 0 0 -1
+$EndComp
+Wire Wire Line
+	8600 1600 8300 1600
+Text Label 8300 1600 0    50   ~ 0
++3V3
+Wire Wire Line
+	8600 1700 8300 1700
+Text Label 8300 1700 0    50   ~ 0
+SWDIO
+Wire Wire Line
+	8600 1800 8300 1800
+Text Label 8300 1800 0    50   ~ 0
+GND
+Wire Wire Line
+	8600 1900 8300 1900
+Text Label 8300 1900 0    50   ~ 0
+SWCLK
+Wire Wire Line
+	8600 2000 8300 2000
+Text Label 8300 2000 0    50   ~ 0
+NRST
+$Comp
+L Switch:SW_Push SW1
+U 1 1 401
+P 1800 5200
+F 0 "SW1" H 1900 5300 50  0000 C CNN
+F 1 "RESET" H 2000 5100 50  0000 C CNN
+	1    1800 5200
+	1 0 0 -1
+$EndComp
+$Comp
+L Device:R R3
+U 1 1 402
+P 2500 4900
+F 0 "R3" H 2600 5000 50  0000 C CNN
+F 1 "10k" H 2700 4800 50  0000 C CNN
+	1    2500 4900
+	1 0 0 -1
+$EndComp
+$Comp
+L Switch:SW_Push SW2
+U 1 1 403
+P 3300 5700
+F 0 "SW2" H 3400 5800 50  0000 C CNN
+F 1 "USER" H 3500 5600 50  0000 C CNN
+	1    3300 5700
+	1 0 0 -1
+$EndComp
+$Comp
+L Device:R R4
+U 1 1 404
+P 4000 5100
+F 0 "R4" H 4100 5200 50  0000 C CNN
+F 1 "1k" H 4200 5000 50  0000 C CNN
+	1    4000 5100
+	1 0 0 -1
+$EndComp
+$Comp
+L Device:LED D2
+U 1 1 405
+P 4000 5500
+F 0 "D2" H 4100 5600 50  0000 C CNN
+F 1 "USER LED" H 4200 5400 50  0000 C CNN
+	1    4000 5500
+	1 0 0 -1
+$EndComp
+Wire Wire Line
+	1500 5200 1600 5200
+Text Label 1500 5200 0    50   ~ 0
+NRST
+Wire Wire Line
+	2000 5200 2500 5200
+Wire Wire Line
+	2500 5050 2500 5200
+Wire Wire Line
+	2500 4750 2500 4600
+Text Label 2500 4600 0    50   ~ 0
++3V3
+Wire Wire Line
+	3100 5700 2900 5700
+Text Label 2900 5700 0    50   ~ 0
+PC13
+Wire Wire Line
+	3500 5700 4000 5700
+Wire Wire Line
+	4000 5250 4000 5350
+Wire Wire Line
+	4000 5650 4000 5800
+Text Label 4000 5800 0    50   ~ 0
+GND
+Wire Wire Line
+	4000 4950 4000 4800
+Text Label 4000 4800 0    50   ~ 0
++3V3
+$Comp
+L Device:R R2
+U 1 1 406
+P 4000 3700
+F 0 "R2" H 4100 3800 50  0000 C CNN
+F 1 "10k" H 4200 3600 50  0000 C CNN
+	1    4000 3700
+	1 0 0 -1
+$EndComp
+Wire Wire Line
+	4000 3550 4000 3400
+Text Label 4000 3400 0    50   ~ 0
+BOOT0
+Wire Wire Line
+	4000 3850 4000 4000
+Text Label 4000 4000 0    50   ~ 0
+GND
+$Comp
+L Connector_Generic:Conn_01x20 J3
+U 1 1 501
+P 8800 4300
+F 0 "J3" H 8900 4400 50  0000 C CNN
+F 1 "GPIO EXPANSION" H 9000 4200 50  0000 C CNN
+	1    8800 4300
+	1 0 0 -1
+$EndComp
+Wire Wire Line
+	8600 3350 8200 3350
+Text Label 8200 3350 0    50   ~ 0
++3V3
+Wire Wire Line
+	8600 3450 8200 3450
+Text Label 8200 3450 0    50   ~ 0
+GND
+Wire Wire Line
+	8600 3550 8200 3550
+Text Label 8200 3550 0    50   ~ 0
+UART_TX
+Wire Wire Line
+	8600 3650 8200 3650
+Text Label 8200 3650 0    50   ~ 0
+UART_RX
+Wire Wire Line
+	8600 3750 8200 3750
+Text Label 8200 3750 0    50   ~ 0
+I2C_SDA
+Wire Wire Line
+	8600 3850 8200 3850
+Text Label 8200 3850 0    50   ~ 0
+I2C_SCL
+Wire Wire Line
+	8600 3950 8200 3950
+Text Label 8200 3950 0    50   ~ 0
+SPI_SCK
+Wire Wire Line
+	8600 4050 8200 4050
+Text Label 8200 4050 0    50   ~ 0
+SPI_MISO
+Wire Wire Line
+	8600 4150 8200 4150
+Text Label 8200 4150 0    50   ~ 0
+SPI_MOSI
+Wire Wire Line
+	8600 4250 8200 4250
+Text Label 8200 4250 0    50   ~ 0
+PC13
+Wire Wire Line
+	8600 4350 8200 4350
+Text Label 8200 4350 0    50   ~ 0
+PA0
+Wire Wire Line
+	8600 4450 8200 4450
+Text Label 8200 4450 0    50   ~ 0
+PA1
+Wire Wire Line
+	8600 4550 8200 4550
+Text Label 8200 4550 0    50   ~ 0
+PA2
+Wire Wire Line
+	8600 4650 8200 4650
+Text Label 8200 4650 0    50   ~ 0
+PA3
+Wire Wire Line
+	8600 4750 8200 4750
+Text Label 8200 4750 0    50   ~ 0
+PA4
+Wire Wire Line
+	8600 4850 8200 4850
+Text Label 8200 4850 0    50   ~ 0
+PB0
+Wire Wire Line
+	8600 4950 8200 4950
+Text Label 8200 4950 0    50   ~ 0
+PB1
+Wire Wire Line
+	8600 5050 8200 5050
+Text Label 8200 5050 0    50   ~ 0
+PB2
+Wire Wire Line
+	8600 5150 8200 5150
+Text Label 8200 5150 0    50   ~ 0
+PB10
+Wire Wire Line
+	8600 5250 8200 5250
+Text Label 8200 5250 0    50   ~ 0
+PB12
+$Comp
+L Connector_Generic:Conn_01x10 J4
+U 1 1 502
+P 1500 6800
+F 0 "J4" H 1600 6900 50  0000 C CNN
+F 1 "I2C / SPI / UART" H 1700 6700 50  0000 C CNN
+	1    1500 6800
+	1 0 0 -1
+$EndComp
+Wire Wire Line
+	1300 6350 900 6350
+Text Label 900 6350 0    50   ~ 0
++3V3
+Wire Wire Line
+	1300 6450 900 6450
+Text Label 900 6450 0    50   ~ 0
+GND
+Wire Wire Line
+	1300 6550 900 6550
+Text Label 900 6550 0    50   ~ 0
+I2C_SDA
+Wire Wire Line
+	1300 6650 900 6650
+Text Label 900 6650 0    50   ~ 0
+I2C_SCL
+Wire Wire Line
+	1300 6750 900 6750
+Text Label 900 6750 0    50   ~ 0
+SPI_SCK
+Wire Wire Line
+	1300 6850 900 6850
+Text Label 900 6850 0    50   ~ 0
+SPI_MISO
+Wire Wire Line
+	1300 6950 900 6950
+Text Label 900 6950 0    50   ~ 0
+SPI_MOSI
+Wire Wire Line
+	1300 7050 900 7050
+Text Label 900 7050 0    50   ~ 0
+UART_TX
+Wire Wire Line
+	1300 7150 900 7150
+Text Label 900 7150 0    50   ~ 0
+UART_RX
+Wire Wire Line
+	1300 7250 900 7250
+Text Label 900 7250 0    50   ~ 0
+PC13
+Text Notes 700 7600 0    50   ~ 12
+POWER: USB-C VBUS -> AP2112K-3.3 -> +3V3. CC1/CC2 have 5.1k Rd pulldowns.
+Text Notes 700 7720 0    50   ~ 12
+MCU: VDD/VDDA/VBAT -> +3V3; VSS/VSSA -> GND; VCAP1 -> 2.2uF; SWD PA13/PA14; UART PA9/PA10; I2C PB6/PB7; SPI PA5/PA6/PA7.
+$EndSCHEMATC

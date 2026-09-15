@@ -1,0 +1,4 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "STM32F401RE_Eval-cache") (type "Legacy") (uri "C:/Users/HP/Desktop/k4/STM32F401RE_Eval-cache.lib") (options "") (descr "Legacy project cache library"))
+)
